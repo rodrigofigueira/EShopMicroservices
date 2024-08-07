@@ -1,5 +1,4 @@
-﻿
-namespace Catalog.API.Products.UpdateProduct;
+﻿namespace Catalog.API.Products.UpdateProduct;
 
 public record UpdateProductRequest(Guid Id,
                                    string Name,
@@ -9,8 +8,6 @@ public record UpdateProductRequest(Guid Id,
                                    decimal Price) : ICommand<UpdateProductResult>;
 
 public record UpdateProductResponse(bool IsSuccess);
-
-
 
 public class UpdateProductEndpoint : ICarterModule
 {
