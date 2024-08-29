@@ -11,6 +11,7 @@ public class BasketRepository(IDocumentSession session) : IBasketRepository
 
     public async Task<bool> DeleteBasket(string userName, CancellationToken cancellationToken = default)
     {
+        _ = await GetBasket(userName, cancellationToken) ?? throw new BasketNotFoundException(userName);
         session.Delete<ShoppingCart>(userName);
         await session.SaveChangesAsync(cancellationToken);
         return true;

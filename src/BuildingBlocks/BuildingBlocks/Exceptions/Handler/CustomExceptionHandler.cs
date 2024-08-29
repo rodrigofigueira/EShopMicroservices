@@ -26,8 +26,8 @@ public class CustomExceptionHandler
     {
         return new()
         {
-            Title = exception.Message,
-            Detail = exception.GetType().Name,
+            Title = exception.GetType().Name,
+            Detail = exception.Message,
             Status = ResolveStatusCode(httpContext, exception),
             Instance = httpContext.Request.Path
         };
